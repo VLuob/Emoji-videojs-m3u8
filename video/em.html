@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .btn {
+        height: 24px;
+        margin: 0 10px;
+      }
+
+      .edit-div {
+        display: inline-block;
+        width: 225px;
+        border: 1px solid #decdcd;
+      }
+      .videodemo {
+        height: auto;
+        outline: none;
+        width: 500px;
+        border-radius: 10px;
+        border: 1px solid #aaa;
+        transition: all 0.3s;
+      }
+      .videodemo:focus {
+        border-color: #09f;
+      }
+      /*  隐藏进度条 */
+      .videodemo::-webkit-media-controls-timeline {
+        display: block;
+      }
+      /* 隐藏当前时间 */
+      .videodemo::-webkit-media-controls-current-time-display {
+        display: block;
+      }
+      /* 隐藏播放时间 */
+      .videodemo::-webkit-media-controls-time-remaining-display {
+        display: block;
+      }
+      /* 隐藏播放按钮 */
+      .videodemo::-webkit-media-controls-play-button {
+        display: block;
+      }
+    </style>
+    <script src="./js/hls.min.js"></script>
+    <script src="./js/qqface/json/translateqqface.json"></script>
+  </head>
+  <body>
+    <h1>EMOJI</h1>
+    <input
+      type="button"
+      value="插入字符"
+      onclick="document.getElementById('test').focus(); insertHtmlAtCaret(`<img src='https://res.wx.qq.com/mpres/htmledition/images/icon/emotion/0.gif'>`);"
+    />
+    <div
+      contenteditable
+      style="height:50px; border:2px solid red;"
+      id="test"
+    ></div>
+    <button onclick="ok()">发送</button>
+    <div>
+      <label>可编辑div:</label>
+      <div
+        contenteditable="true"
+        class="edit-div"
+        onclick="getCursortPosition(event);"
+      ></div>
+      <span>光标位置:</span>
+      <span></span>
+    </div>
+    <hr />
+    <!-- ---------------------------------------------------- -->
+    <h1>VIDEO</h1>
+    <!-- muted 静音-->
+    <video
+      controls
+      id="myvideo"
+      controlslist="nodownload"
+      disablePictureInPicture
+      class="videodemo"
+    ></video>
+    <video id="video1" controls width="270" autoplay>
+      <source
+        src="https://www.w3school.com.cn/example/html5/mov_bbb.ogg"
+        type="video/mp4"
+      />
+      <source
+        src="https://www.w3school.com.cn/example/html5/mov_bbb.ogg"
+        type="video/ogg"
+      />
+      <source src="/example/html5/mov_bbb.webm" type="video/webm" />
+    </video>
+
+    <p>画布（每 20 毫秒，代码就会绘制视频的当前帧）：</p>
+
+    <canvas
+      id="myCanvas"
+      width="270"
+      height="135"
+      style="border:1px solid #d3d3d3;"
+    >
+      Your browser does not support the HTML5 canvas tag.
+    </canvas>
+  </body>
+  <script type="text/javascript">
+    var v = document.getElementById("video1");
+    var c = document.getElementById("myCanvas");
+    ctx = c.getContext("2d");
+    v.addEventListener(
+      "play",
+      function() {
+        var i = window.setInterval(function() {
+          ctx.drawImage(v, 0, 0, 270, 135);
+        }, 20);
+      },
+      false
+    );
+    v.addEventListener(
+      "pause",
+      function() {
+        window.clearInterval(i);
+      },
+      false
+    );
+    v.addEventListener(
+      "ended",
+      function() {
+        clearInterval(i);
+      },
+      false
+    );
+
+    //src="https://www.libdiy.com/upload/article/20138_zhibianniu/2020/7-30/videos/202007301359264470.mp4"
+    if (Hls.isSupported()) {
+      var video = document.getElementById("myvideo");
+      var hls = new Hls();
+      hls.loadSource(
+        "https://cdn.letv-cdn.com/2018/12/05/JOCeEEUuoteFrjCg/playlist.m3u8"
+      );
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        video.play();
+      });
+    }
+    window.onload = function() {
+      // var video = document.getElementById("myvideo");
+      // window.addEventListener("timeupdate", () => {
+      //   console.log(video.currentTime, video.duration);
+      // });
+      // video.currentTime = 32;
+      // video.onclick = () => false;
+      //video.volume = 0.3;
+      /* 处理img标签地址 */
+    };
+    function ok() {
+      const text = document.getElementById("test").innerHTML;
+      let imgReg = /<img.*?(?:>|\/>)/gi; //匹配图片中的img标签
+      let srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i; // 匹配图片中的src
+      var newContent = text.replace(
+        /<img [^>]*src=['"]([^'"]+)[^>]*>/gi,
+        function(match, capture) {
+          //capture,返回每个匹配的字符串
+          return capture;
+        }
+      );
+      console.log(newContent);
+    }
+
+    function getCursortPosition(e) {
+      var eleP = e.target.parentNode; //获取父级元素
+      var pos = 0;
+      if (e.target.nodeName == "DIV") {
+        pos = getDivPosition(e.target);
+      } else {
+        pos = getPosition(e.target);
+      }
+      var spanEle = eleP.childNodes[7];
+      spanEle.innerText = pos;
+    }
+    //可编辑div获取坐标
+    const getDivPosition = function(element) {
+      var caretOffset = 0;
+      var doc = element.ownerDocument || element.document;
+      var win = doc.defaultView || doc.parentWindow;
+      var sel;
+      if (typeof win.getSelection != "undefined") {
+        //谷歌、火狐
+        sel = win.getSelection();
+        if (sel.rangeCount > 0) {
+          //选中的区域
+          var range = win.getSelection().getRangeAt(0);
+          var preCaretRange = range.cloneRange(); //克隆一个选中区域
+          preCaretRange.selectNodeContents(element); //设置选中区域的节点内容为当前节点
+          preCaretRange.setEnd(range.endContainer, range.endOffset); //重置选中区域的结束位置
+          caretOffset = preCaretRange.toString().length;
+        }
+      } else if ((sel = doc.selection) && sel.type != "Control") {
+        //IE
+        var textRange = sel.createRange();
+        var preCaretTextRange = doc.body.createTextRange();
+        preCaretTextRange.moveToElementText(element);
+        preCaretTextRange.setEndPoint("EndToEnd", textRange);
+        caretOffset = preCaretTextRange.text.length;
+      }
+      return caretOffset;
+    };
+
+    function insertHtmlAtCaret(html) {
+      var sel, range;
+      if (window.getSelection) {
+        // IE9 and non-IE
+        sel = window.getSelection();
+        if (sel.getRangeAt && sel.rangeCount) {
+          range = sel.getRangeAt(0);
+          range.deleteContents();
+          // Range.createContextualFragment() would be useful here but is
+          // non-standard and not supported in all browsers (IE9, for one)
+          var el = document.createElement("div");
+          el.innerHTML = html;
+          var frag = document.createDocumentFragment(),
+            node,
+            lastNode;
+          while ((node = el.firstChild)) {
+            lastNode = frag.appendChild(node);
+          }
+          range.insertNode(frag);
+          // Preserve the selection
+          if (lastNode) {
+            range = range.cloneRange();
+            range.setStartAfter(lastNode);
+            range.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(range);
+          }
+        }
+      } else if (document.selection && document.selection.type != "Control") {
+        // IE < 9
+        document.selection.createRange().pasteHTML(html);
+      }
+    }
+
+    /*
+     *@str [String] 需要转义的HTML
+     */
+    function HtmlEscape(str) {
+      let temp = "";
+      if (str.length == 0) {
+        return "";
+      } else {
+        temp = str.replace(/&/g, "&amp;");
+        temp = temp.replace(/</g, "&lt;");
+        temp = temp.replace(/>/g, "&gt;");
+        temp = temp.replace(/ /g, "&nbsp;");
+        temp = temp.replace(/\'/g, "&#39;"); //IE下不支持实体名称
+        temp = temp.replace(/\"/g, "&quot;");
+        return temp;
+      }
+    }
+    // 去除html特殊字符
+    function deleteHtmlTag(str) {
+      return str.replace(/<[^>]+>|&[^>]+;/g, "").trim(); //去掉所有的html标签和&nbsp;之类的特殊符合
+    }
+    //还原HTML代码
+    function escape2Html(str) {
+      var arrEntities = { lt: "<", gt: ">", nbsp: " ", amp: "&", quot: '"' };
+      return str.replace(/&(lt|gt|nbsp|amp|quot);/gi, function(all, t) {
+        return arrEntities[t];
+      });
+    }
+  </script>
+</html>
