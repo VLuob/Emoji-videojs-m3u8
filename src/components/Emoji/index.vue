@@ -1,11 +1,6 @@
 <template>
   <div>
-    <el-popover
-      placement="bottom"
-      width="430"
-      trigger="manual"
-      v-model="visible"
-    >
+    <el-popover placement="bottom" width="430" trigger="click">
       <div class="emojiTab">
         <div class="emojiTab_tab">
           <span
@@ -19,13 +14,13 @@
         </div>
         <div class="emotion-box" v-if="curTab == 'QQ'">
           <div class="emotion-box-line" v-for="(line, i) in emojiList" :key="i">
-            <emotion
+            <emoji
               class="emotion-item"
               v-for="(item, i) in line"
               :key="i"
-              :title="item"
+              :title="item.replace(/\[|]/g, '')"
               @click.native="onEmojiHandler(item)"
-              >{{ item }}</emotion
+              >{{ item }}</emoji
             >
           </div>
         </div>
@@ -36,22 +31,20 @@
         draggable="false"
         src="/static/qqface/qqface/qqface0.png"
         align="middle"
-        @click="visible = !visible"
       />
     </el-popover>
   </div>
 </template>
 
 <script>
+import Emoji from "./Emoji";
 import { imgHTML, emojiList } from "./utils";
-import Emotion from "./Emotion";
 export default {
   components: {
-    Emotion
+    Emoji
   },
   data() {
     return {
-      visible: false,
       emojiList: emojiList,
       curTab: "QQ",
       tabList: ["QQ", "表情包", "ZBN", "自定义"]
@@ -129,6 +122,8 @@ export default {
 }
 .emotion-box-line {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .emotion-item {
   flex: 1;

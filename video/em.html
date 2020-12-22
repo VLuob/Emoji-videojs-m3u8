@@ -49,7 +49,6 @@
       }
     </style>
     <script src="./js/hls.min.js"></script>
-    <script src="./js/qqface/json/translateqqface.json"></script>
   </head>
   <body>
     <h1>EMOJI</h1>
@@ -60,6 +59,8 @@
     />
     <div
       contenteditable
+      input="ipt"
+      tabindex="1"
       style="height:50px; border:2px solid red;"
       id="test"
     ></div>
@@ -109,6 +110,10 @@
     </canvas>
   </body>
   <script type="text/javascript">
+    function ipt(e) {
+      console.log(e);
+    }
+
     var v = document.getElementById("video1");
     var c = document.getElementById("myCanvas");
     ctx = c.getContext("2d");
@@ -124,7 +129,7 @@
     v.addEventListener(
       "pause",
       function() {
-        window.clearInterval(i);
+        clearInterval(i);
       },
       false
     );
@@ -135,29 +140,26 @@
       },
       false
     );
-
+    console.log(this);
     //src="https://www.libdiy.com/upload/article/20138_zhibianniu/2020/7-30/videos/202007301359264470.mp4"
     if (Hls.isSupported()) {
       var video = document.getElementById("myvideo");
       var hls = new Hls();
       hls.loadSource(
+        //"https://www.libdiy.com/upload/article/20138_zhibianniu/2020/7-30/videos/202007301359264470.mp4"
         "https://cdn.letv-cdn.com/2018/12/05/JOCeEEUuoteFrjCg/playlist.m3u8"
       );
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, function() {
         video.play();
+        video.currentTime(32);
+        video.onclick = _ => false;
+        video.volume = 0.3;
+        video.addEventListener("timeupdate", () => {
+          console.log(video.currentTime, video.duration);
+        });
       });
     }
-    window.onload = function() {
-      // var video = document.getElementById("myvideo");
-      // window.addEventListener("timeupdate", () => {
-      //   console.log(video.currentTime, video.duration);
-      // });
-      // video.currentTime = 32;
-      // video.onclick = () => false;
-      //video.volume = 0.3;
-      /* 处理img标签地址 */
-    };
     function ok() {
       const text = document.getElementById("test").innerHTML;
       let imgReg = /<img.*?(?:>|\/>)/gi; //匹配图片中的img标签
@@ -243,35 +245,6 @@
         // IE < 9
         document.selection.createRange().pasteHTML(html);
       }
-    }
-
-    /*
-     *@str [String] 需要转义的HTML
-     */
-    function HtmlEscape(str) {
-      let temp = "";
-      if (str.length == 0) {
-        return "";
-      } else {
-        temp = str.replace(/&/g, "&amp;");
-        temp = temp.replace(/</g, "&lt;");
-        temp = temp.replace(/>/g, "&gt;");
-        temp = temp.replace(/ /g, "&nbsp;");
-        temp = temp.replace(/\'/g, "&#39;"); //IE下不支持实体名称
-        temp = temp.replace(/\"/g, "&quot;");
-        return temp;
-      }
-    }
-    // 去除html特殊字符
-    function deleteHtmlTag(str) {
-      return str.replace(/<[^>]+>|&[^>]+;/g, "").trim(); //去掉所有的html标签和&nbsp;之类的特殊符合
-    }
-    //还原HTML代码
-    function escape2Html(str) {
-      var arrEntities = { lt: "<", gt: ">", nbsp: " ", amp: "&", quot: '"' };
-      return str.replace(/&(lt|gt|nbsp|amp|quot);/gi, function(all, t) {
-        return arrEntities[t];
-      });
     }
   </script>
 </html>

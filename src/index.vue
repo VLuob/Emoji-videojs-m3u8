@@ -1,130 +1,63 @@
 <template>
   <div class="container">
     <h1 @click="$router.push('/video')">EMOJI</h1>
-    <div class="icon">
-      <div
-        ref="area"
-        contenteditable="true"
-        class="box text edit"
-        placeholder="说点什么.."
-      ></div>
-      <emotion class="emoji" @onEmoJi="onEmoJi"></emotion>
+    <div class="content">
+      <ipt-edit class="beautiful" emoji v-model="checkHtml" />
+      <button @click="ok">发送</button>
     </div>
-    <button @click="ok">发送</button>
+    <div>
+      非转义:
+      <div v-html="nhtml" class="html"></div>
+    </div>
+    <div>
+      转义:
+      <div v-html="html" class="html"></div>
+    </div>
   </div>
 </template>
 <script>
-import Emotion from "@/components/Emotion/index";
-import { replaceImg } from "@/components/Emotion/utils";
+import IptEdit from "@/components/IptEdit";
+import { replaceImg, replaceTxt } from "@/components/Emoji/utils";
 export default {
   name: "index",
   components: {
-    Emotion
+    IptEdit
   },
   data() {
     return {
-      showDialog: false
+      html: "",
+      nhtml: "",
+      checkHtml: ""
     };
   },
   methods: {
     ok() {
-      const text = this.$refs.area.innerHTML;
-      console.log(replaceImg(text));
-    },
-    //选择到的表情
-    onEmoJi(i) {
-      this.$refs.area.focus();
-      this.insertHtmlAtCaret(i);
-    },
-    //处理输入框
-    insertHtmlAtCaret(html) {
-      var sel, range;
-      if (window.getSelection) {
-        // IE9 and non-IE
-        sel = window.getSelection();
-        if (sel.getRangeAt && sel.rangeCount) {
-          range = sel.getRangeAt(0);
-          range.deleteContents();
-          // Range.createContextualFragment() would be useful here but is
-          // non-standard and not supported in all browsers (IE9, for one)
-          var el = document.createElement("div");
-          el.innerHTML = html;
-          var frag = document.createDocumentFragment(),
-            node,
-            lastNode;
-          while ((node = el.firstChild)) {
-            lastNode = frag.appendChild(node);
-          }
-          range.insertNode(frag);
-          // Preserve the selection
-          if (lastNode) {
-            range = range.cloneRange();
-            range.setStartAfter(lastNode);
-            range.collapse(true);
-            sel.removeAllRanges();
-            sel.addRange(range);
-          }
-        }
-      } else if (document.selection && document.selection.type != "Control") {
-        // IE < 9
-        document.selection.createRange().pasteHTML(html);
-      }
+      this.html = replaceTxt(this.checkHtml);
+      this.nhtml = replaceImg(this.checkHtml);
     }
   }
 };
 </script>
-<style scoped>
+<style scoped lang="less">
 h1 {
   cursor: pointer;
 }
-.text:empty:before {
-  content: attr(placeholder);
-  color: #bbb;
+.content {
+  margin: 50px auto;
+  display: flex;
+  width: 350px;
+  justify-content: space-around;
+  .beautiful {
+    width: 300px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: #fff;
+    overflow: hidden;
+    color: #303133;
+  }
 }
-.text:focus {
-  content: none;
-}
-.edit,
-.edit * {
-  -webkit-user-select: auto;
-  -webkit-user-modify: read-write;
-}
-.container {
-  margin: 0 auto;
-  margin-top: 20px;
-  width: 300px;
-  user-select: none;
-}
-.text {
-  display: block;
-  margin: 0 auto;
-  width: 300px;
-  resize: none;
-  box-sizing: border-box;
-  padding: 5px 10px;
-  border-radius: 8px;
-}
-.box {
+.html {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  border: 1px solid #eee;
-  outline: none;
-  transition: all 0.3s;
-  line-height: 24px;
-}
-.box:focus {
-  border-color: rosybrown;
-}
-.icon {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.icon .emoji {
-  position: absolute;
-  right: 10px;
-  top: 3px;
-  cursor: pointer;
 }
 </style>

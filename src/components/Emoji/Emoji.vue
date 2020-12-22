@@ -15,7 +15,7 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="less" scoped>
 .cy_emotion {
   display: inline-block;
 }
