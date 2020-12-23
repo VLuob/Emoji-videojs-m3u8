@@ -16,6 +16,7 @@
   </div>
 </template>
 <script>
+//DrarResize
 import IptEdit from "@/components/IptEdit";
 import { replaceImg, replaceTxt } from "@/components/Emoji/utils";
 export default {
