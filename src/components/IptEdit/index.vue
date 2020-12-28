@@ -55,7 +55,7 @@ export default {
     }
   },
   mounted() {
-    // 组件初始化，对innerHTML赋值
+    // 组件初始化，对innerHTML赋
     this.$refs.edit.innerHTML = this.text;
     // 一旦div的dom发生插入值的操作，调用domChange()方法传递值至父组件
     EventUtil.addHandler(this.$refs.edit, "DOMNodeInserted", this.domChange);
@@ -130,9 +130,7 @@ export default {
   transition: all 0.3s;
 }
 .isemoji {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  vertical-align: middle;
 }
 .editdiv:empty:before {
   content: attr(placeholder);

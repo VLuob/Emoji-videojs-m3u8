@@ -82,7 +82,7 @@ export default {
           console.log("开始播放", this.currentTime());
           //document.querySelector(".vjs-big-play-button").style.display = "none";
         });
-        //暂停
+        //暂停112123
         this.on("pause", function(e) {
           console.log(e, "pause");
           //  document.querySelector(".vjs-big-play-button").style.display =

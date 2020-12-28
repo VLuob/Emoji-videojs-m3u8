@@ -1,6 +1,11 @@
 <template>
   <div>
-    <el-popover placement="bottom" width="430" trigger="click">
+    <el-popover
+      placement="bottom"
+      width="430"
+      trigger="manual"
+      v-model="visible"
+    >
       <div class="emojiTab">
         <div class="emojiTab_tab">
           <span
@@ -29,6 +34,7 @@
       <img
         slot="reference"
         draggable="false"
+        @click="visible = !visible"
         src="/static/qqface/qqface/qqface0.png"
         align="middle"
       />
@@ -45,6 +51,7 @@ export default {
   },
   data() {
     return {
+      visible: false,
       emojiList: emojiList,
       curTab: "QQ",
       tabList: ["QQ", "表情包", "ZBN", "自定义"]
