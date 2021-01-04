@@ -12,9 +12,11 @@
   "dependencies": {
     "@kevinfaguiar/vue-twemoji-picker": "^5.7.4",
     "ant-design-vue": "^1.7.2",
+    "dplayer": "^1.26.0",
     "element-ui": "^2.14.1",
     "emoji-vue": "^0.2.4",
     "hbl-comment": "^1.2.3",
+    "hls.js": "^0.14.17",
     "less": "^3.13.0",
     "less-loader": "^5.0.0",
     "video.js": "^7.10.2",
@@ -22,6 +24,7 @@
     "videojs-landscape-fullscreen": "^11.1.0",
     "videojs-playlist": "^4.3.1",
     "vue": "^2.5.2",
+    "vue-dplayer": "0.0.10",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

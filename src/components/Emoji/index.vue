@@ -35,7 +35,7 @@
         slot="reference"
         draggable="false"
         @click="visible = !visible"
-        src="/static/qqface/qqface/qqface0.png"
+        :src="emoIcon"
         align="middle"
       />
     </el-popover>
@@ -48,6 +48,12 @@ import { imgHTML, emojiList } from "./utils";
 export default {
   components: {
     Emoji
+  },
+  props: {
+    emoIcon: {
+      type: String,
+      default: "/static/qqface/qqface/qqface0.png"
+    }
   },
   data() {
     return {

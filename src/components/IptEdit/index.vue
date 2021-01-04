@@ -20,7 +20,7 @@
       :placeholder="placeholder"
     ></div>
     <keep-alive>
-      <emoji class="emoji" @onEmoJi="onEmoJi" v-if="emoji" />
+      <emoji class="emoji" @onEmoJi="onEmoJi" v-if="emoji" :emoIcon="emoIcon" />
     </keep-alive>
   </div>
 </template>
@@ -47,6 +47,10 @@ export default {
     emoji: {
       type: Boolean,
       default: false
+    },
+    emoIcon: {
+      type: String,
+      default: "/static/qqface/qqface/qqface0.png"
     },
     //placeholder
     placeholder: {
@@ -116,8 +120,7 @@ export default {
 .editdiv {
   position: relative;
   outline: none;
-  border: 1px solid #eaecf1;
-  padding: 5px 26px 5px 12px;
+  padding: 5px 12px;
   border-radius: 5px;
   box-sizing: border-box;
   height: 100%;
@@ -134,7 +137,7 @@ export default {
 }
 .editdiv:empty:before {
   content: attr(placeholder);
-  color: #bbb;
+  color: #a7664c;
 }
 .editdiv:focus {
   content: none;
@@ -142,8 +145,9 @@ export default {
 }
 .emoji {
   position: absolute;
-  right: 10px;
-  top: 2px;
+  right: 85px;
+  bottom: 19px;
   cursor: pointer;
+  z-index: 2021;
 }
 </style>
