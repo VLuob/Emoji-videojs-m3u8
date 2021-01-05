@@ -1,7 +1,5 @@
 <template>
-  <div class="videodemo">
-    <div id="dplayer">dplayer</div>
-  </div>
+  <div id="dplayer"></div>
 </template>
 <script>
 import DPlayer from "dplayer";
@@ -16,13 +14,4 @@ export default {
   methods: {}
 };
 </script>
-<style scoped lang="less">
-.videodemo {
-  height: 100%;
-  width: 100%;
-  outline: none;
-  transition: all 0.3s;
-  overflow: hidden;
-}
-</style>
-<style></style>
+<style scoped lang="less"></style>

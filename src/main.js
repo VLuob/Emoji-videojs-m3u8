@@ -5,6 +5,7 @@ import Antd from "ant-design-vue";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "vue-dplayer/dist/vue-dplayer.css";
+window.Hls = require('hls.js');
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
 Vue.use(Antd);

@@ -19,9 +19,6 @@
       @input="domInput"
       :placeholder="placeholder"
     ></div>
-    <keep-alive>
-      <emoji class="emoji" @onEmoJi="onEmoJi" v-if="emoji" :emoIcon="emoIcon" />
-    </keep-alive>
   </div>
 </template>
 <script>
@@ -59,8 +56,6 @@ export default {
     }
   },
   mounted() {
-    // 组件初始化，对innerHTML赋
-    this.$refs.edit.innerHTML = this.text;
     // 一旦div的dom发生插入值的操作，调用domChange()方法传递值至父组件
     EventUtil.addHandler(this.$refs.edit, "DOMNodeInserted", this.domChange);
   },
@@ -69,6 +64,9 @@ export default {
     EventUtil.removeHandler(this.$refs.edit, "DOMNodeInserted", this.domChange);
   },
   methods: {
+    setIptValue(e) {
+      this.$refs.edit.innerHTML = e;
+    },
     //选择到的表情
     onEmoJi(i) {
       this.$refs.edit.focus();
@@ -116,9 +114,15 @@ export default {
 <style lang="less" scoped>
 #edit {
   position: relative;
+  .emoji {
+    position: absolute;
+    right: 80px;
+    bottom: 15px;
+    cursor: pointer;
+    z-index: 2021;
+  }
 }
 .editdiv {
-  position: relative;
   outline: none;
   padding: 5px 12px;
   border-radius: 5px;
@@ -131,6 +135,33 @@ export default {
   user-select: text;
   text-align: left;
   transition: all 0.3s;
+  z-index: -1;
+  /deep/img {
+    position: relative;
+    top: 5%;
+    margin: 0 0.5%;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #d19e5c;
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background: #fff;
+  }
+  .hide {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    width: 150px;
+    background: Red;
+    opacity: 0.5;
+  }
 }
 .isemoji {
   vertical-align: middle;
@@ -142,12 +173,5 @@ export default {
 .editdiv:focus {
   content: none;
   border-color: rosybrown;
-}
-.emoji {
-  position: absolute;
-  right: 85px;
-  bottom: 19px;
-  cursor: pointer;
-  z-index: 2021;
 }
 </style>
