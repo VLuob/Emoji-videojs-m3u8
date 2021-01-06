@@ -13,6 +13,12 @@
       转义:
       <div v-html="html" class="html"></div>
     </div>
+
+    <div class="box">
+      <div class="c1">1</div>
+      <div class="c2" :class="{ hide: hide }">2</div>
+    </div>
+    <button @click="hide = !hide">收起</button>
   </div>
 </template>
 <script>
@@ -28,7 +34,8 @@ export default {
     return {
       html: "",
       nhtml: "",
-      checkHtml: ""
+      checkHtml: "",
+      hide: false
     };
   },
   methods: {
@@ -60,5 +67,24 @@ h1 {
 .html {
   display: flex;
   align-items: center;
+}
+.box {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #303133;
+  display: flex;
+  .c1 {
+    width: 80%;
+    height: 100%;
+    background: red;
+  }
+  .c2 {
+    height: 100%;
+    background: rgb(105, 89, 89);
+    width: 20%;
+  }
+}
+.hide {
+  width: 80% !important;
 }
 </style>

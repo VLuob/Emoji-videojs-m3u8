@@ -24,27 +24,27 @@ export default {
       playerOptions: {
         controls: true, //控制栏
         playbackRates: [0.5, 1.0, 1.5, 2.0], // 可选的播放速度
-        autoplay: false, // 如果为true,浏览器准备好时开始回放。
+        autoplay: true, // 如果为true,浏览器准备好时开始回放。
         muted: true, // 默认情况下将会消除任何音频。
         loop: false, // 是否视频一结束就重新开始。
         preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
         language: "zh-CN",
         aspectRatio: "16:9", // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
         fluid: true, // 当true,它将按比例缩放以适应其容器。
-        poster: "http://vjs.zencdn.net/v/oceans.png", // 封面地址
+        //poster: "http://vjs.zencdn.net/v/oceans.png", // 封面地址
         notSupportedMessage: "刷新一下", //错误提示
         sources: [
           //播放列表
-          /*   {
+          /* {
             type: "video/mp4", // 类型
             src:
               "https://www.libdiy.com/upload/article/20138_zhibianniu/2020/7-30/videos/202007301359264470.mp4" // url地址
-          }, */
-          {
+          } */
+          /* {
             type: "application/x-mpegURL", // 这里的种类支持很多种：基本视频格式、直播、流媒体等
             src:
               "https://cdn.letv-cdn.com/2018/12/05/JOCeEEUuoteFrjCg/playlist.m3u8" //url地址
-          }
+          } */
         ],
         controlBar: {
           fullscreenToggle: true, //全屏
@@ -75,7 +75,7 @@ export default {
       videojs(this.player, this.playerOptions, function() {
         console.log(this, this.tagAttributes);
         //调用播放
-        //this.play();
+        this.play();
         //播放
         this.on("play", function(e) {
           this.currentTime(20); //快进到指定时段
@@ -127,11 +127,14 @@ export default {
       //   progressControl: false, //进度条
       //   playbackRateMenuButton: false //倍数按钮
       // };
+      document.querySelector(".vjs-duration").remove();
+      document.querySelector(".vjs-time-control").remove(); //已/未播放时间
+      document.querySelector(".vjs-time-control").remove();
       document.querySelector(".vjs-play-control").remove(); //播放
       document.querySelector(".vjs-playback-rate").remove(); //快进
-      document.querySelector(".vjs-time-control").remove(); //已/未播放时间
+      document.querySelector(".vjs-big-play-button").remove();
       document.querySelector(".vjs-progress-control").remove(); //进度条
-      document.querySelector(".vjs-volume-panel").style.marginLeft = "auto"; //剩余按钮全部靠右
+      document.querySelector(".vjs-volume-panel").style.marginRight = "auto"; //剩余按钮全部靠右
     }
   }
 };
