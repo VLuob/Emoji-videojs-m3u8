@@ -9,7 +9,7 @@
         <div class="notice_txt">{{ levalInfo.notice }}</div>
       </div>
       <!-- 消息池 -->
-      <div class="comment_txtbox">
+      <div class="comment_txtbox" ref="comment">
         <!-- 消息列表 -->
         <div
           class="txtbox_list"
@@ -36,7 +36,7 @@
             </div>
             <!-- 更多按钮 -->
             <div class="user_more">
-              <el-popover placement="bottom" width="20" trigger="click">
+              <el-popover placement="bottom" trigger="click">
                 <div
                   class="more_btnlist"
                   v-for="item in moreBtnList"
@@ -59,7 +59,7 @@
           <div class="list_txt">
             <div class="txt_triangle"></div>
             <!-- 消息内容 -->
-            <div class="txt" v-html="item.say"></div>
+            <div class="txt" v-html="replaceTxt(item.say || '')"></div>
           </div>
         </div>
       </div>
@@ -69,6 +69,7 @@
           class="ipt_edit"
           ref="edit"
           emoji
+          @keyup.enter="send"
           v-model="checkHtml"
           :placeholder="unSpeak ? unSpeakText : placeholder"
         />
@@ -89,7 +90,7 @@
 <script>
 import Emoji from "@/components/Emoji";
 import IptEdit from "@/components/IptEdit";
-import { replaceImg, replaceTxt } from "@/components/Emoji/utils";
+import { replaceImg, replaceTxt, myBrowser } from "@/components/Emoji/utils";
 export default {
   name: "comment",
   components: {
@@ -105,7 +106,10 @@ export default {
   data() {
     return {
       checkHtml: "", //输入框
+      ws: null, //WebSocket实例
       unSpeak: false, //是否禁言
+      count: null, //在线人数
+      replaceTxt: replaceTxt, //表情文字替换表情方法
       unSpeakText: "全员禁言中", //禁言文字
       placeholder: "点击输入内容", //输入框提示文字
       emoIcon: require("@/assets/img/emoji.png"), //表情选择icon
@@ -114,20 +118,7 @@ export default {
       /* 消息列表 */
       levalInfo: {
         notice: "可以在这里发布课堂公告",
-        list: [
-          {
-            icon: "",
-            say: "欢迎同学们来到智编牛Python线上直播课堂",
-            Ttype: 1,
-            name: "智编牛助教"
-          },
-          {
-            icon: "",
-            say: "开始上课了吗?",
-            Ttype: 2,
-            name: "张三"
-          }
-        ]
+        list: []
       },
       img: {
         lb: require("@/assets/img/lb.png") /* 公告icon */,
@@ -137,19 +128,23 @@ export default {
     };
   },
   computed: {},
-  mounted() {},
+  mounted() {
+    this.initWebSocket();
+    console.log();
+  },
   methods: {
     //发送消息按钮
     send() {
       try {
         if (this.checkHtml) {
-          this.levalInfo.list.push({
+          let _this = this;
+          const params = {
             icon: "",
-            say: replaceTxt(this.checkHtml),
+            say: replaceImg(this.checkHtml),
             Ttype: 2,
-            name: "学生"
-          });
-          console.log(replaceImg(this.checkHtml));
+            name: myBrowser() //"学生"
+          };
+          _this.ws.send(JSON.stringify(params));
           this.checkHtml = "";
           this.$refs.edit.emptyInnerHTML();
           this.placeholder = "点击输入内容";
@@ -158,12 +153,54 @@ export default {
         }
       } catch (err) {}
     },
+    //进入页面创建websocket连接
+    initWebSocket() {
+      let _this = this;
+      //判断页面有没有存在websocket连接
+      if (window.WebSocket) {
+        let ws = new WebSocket("ws://192.168.1.11:8181");
+        _this.ws = ws;
+        ws.onopen = function(e) {
+          console.log("服务器连接成功");
+          //ws.send(JSON.stringify({ addName: "张三" }));
+        };
+        ws.onclose = function(e) {
+          console.log("服务器连接关闭");
+        };
+        ws.onerror = function() {
+          console.log("服务器连接出错");
+        };
+        ws.onmessage = function(e) {
+          //接收服务器返回的数据
+          let resData = JSON.parse(e.data);
+          if (resData.funName == "userCount") {
+            _this.count = resData.users;
+            _this.levalInfo.list = resData.chat;
+          } else {
+            _this.levalInfo.list = [
+              ..._this.levalInfo.list,
+              {
+                name: resData.name,
+                say: replaceTxt(resData.say),
+                icon: resData.icon,
+                Ttype: resData.Ttype
+              }
+            ];
+          }
+        };
+      } else {
+        alert("不支持ws");
+        console.log("不支持ws");
+      }
+    },
     //更多
     userHandle(item) {
       switch (item) {
         case "引用":
           !this.unSpeak &&
-            this.$refs.edit.setIptValue(this.checkHtml + this.curUserInfo.say);
+            this.$refs.edit.setIptValue(
+              replaceTxt(this.checkHtml + this.curUserInfo.say)
+            );
           break;
         case "踢人":
           console.log(item);
@@ -175,7 +212,6 @@ export default {
     },
     //选择表情
     onEmoJi(emoji) {
-      console.log(emoji);
       this.$refs.edit.onEmoJi(emoji);
     },
     //滚动条定位到底部
@@ -186,6 +222,10 @@ export default {
   },
   updated() {
     this.locationBottom();
+  },
+  destroyed() {
+    let _this = this;
+    _this.ws.close();
   }
 };
 </script>

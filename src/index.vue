@@ -19,23 +19,42 @@
       <div class="c2" :class="{ hide: hide }">2</div>
     </div>
     <button @click="hide = !hide">收起</button>
+    <test :list="list">
+      <h3 slot="vi"></h3>
+      <h3 slot="video">视频组件</h3>
+      <template slot-scope="scope">
+        <h3>{{ scope.row}}</h3>
+      </template>
+    </test>
   </div>
 </template>
 <script>
 //DrarResize
 import IptEdit from "@/components/IptEdit";
+import test from "@/components/test";
 import { replaceImg, replaceTxt } from "@/components/Emoji/utils";
 export default {
   name: "index",
   components: {
-    IptEdit
+    IptEdit,
+    test
   },
   data() {
     return {
       html: "",
       nhtml: "",
       checkHtml: "",
-      hide: false
+      hide: false,
+      list: [
+        { id: 1, title: "A" },
+        { id: 2, title: "B" },
+        { id: 3, title: "C" },
+        { id: 4, title: "D" },
+        { id: 5, title: "E" },
+        { id: 6, title: "F" },
+        { id: 7, title: "G" },
+        { id: 8, title: "H" }
+      ]
     };
   },
   methods: {

@@ -19,6 +19,7 @@
       @input="domInput"
       :placeholder="placeholder"
     ></div>
+    <slot></slot>
   </div>
 </template>
 <script>

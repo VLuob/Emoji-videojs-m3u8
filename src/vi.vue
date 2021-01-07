@@ -2,12 +2,14 @@
   <div class="vibox">
     <main id="vi">
       <div class="video" :class="{ left: isRetract }">
-        <v-DPlayer class="video_box" />
+        <!--  <v-DPlayer class="video_box" /> -->
         <!-- <DPlayer></DPlayer> -->
-        <!--  <m-video class="video_box" /> -->
+        <m-video class="video_box" />
       </div>
       <div class="comment" :class="{ hide: isRetract }">
-        <comment @changeSH="changeSH" :isRetract="isRetract" />
+        <keep-alive>
+          <comment @changeSH="changeSH" :isRetract="isRetract" />
+        </keep-alive>
       </div>
     </main>
   </div>
@@ -26,7 +28,7 @@ export default {
   },
   data() {
     return {
-      isRetract: true //是否收起
+      isRetract: false //是否收起
     };
   },
   computed: {},
