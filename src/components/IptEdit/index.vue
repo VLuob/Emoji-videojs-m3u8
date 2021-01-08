@@ -19,7 +19,7 @@
       @input="domInput"
       :placeholder="placeholder"
     ></div>
-    <slot></slot>
+    <slot name="emoji"></slot>
   </div>
 </template>
 <script>

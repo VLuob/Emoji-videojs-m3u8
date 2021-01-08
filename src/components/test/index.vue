@@ -1,21 +1,16 @@
 <template>
   <div class="container">
-    <slot></slot>
-    <h1 @click="$router.push('/video')">VIDEO</h1>
-    <el-row :gutter="20">
-      <el-col
+    <h1>TEST</h1>
+    <ul class="ul">
+      <li
         :span="8"
         v-for="(item, index) in list"
         :key="index"
         style="margin-top:20px;"
       >
         <slot :row="item"></slot>
-      </el-col>
-    </el-row>
-    <hr />
-    <h1 @click="$router.push('/vi')">VI</h1>
-    <slot name="vi">这里放直播组件</slot>
-    <slot>这里是默认组件</slot>
+      </li>
+    </ul>
   </div>
 </template>
 <script>
@@ -36,5 +31,13 @@ export default {
 <style scoped lang="less">
 h1 {
   cursor: pointer;
+}
+.ul {
+  display: flex;
+  flex-direction: column;
+  li {
+    display: flex;
+    align-items: center;
+  }
 }
 </style>

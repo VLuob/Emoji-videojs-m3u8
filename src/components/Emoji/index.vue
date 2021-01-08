@@ -1,11 +1,6 @@
 <template>
   <div>
-    <el-popover
-      placement="bottom"
-      width="430"
-      trigger="manual"
-      v-model="visible"
-    >
+    <el-popover placement="bottom" width="430" trigger="click">
       <div class="emojiTab">
         <div class="emojiTab_tab">
           <span
@@ -31,13 +26,7 @@
         </div>
         <div v-else class="notEmoji">该分类暂无表情包</div>
       </div>
-      <img
-        slot="reference"
-        draggable="false"
-        @click="visible = !visible"
-        :src="emoIcon"
-        align="middle"
-      />
+      <img slot="reference" draggable="false" :src="emoIcon" align="middle" />
     </el-popover>
   </div>
 </template>
@@ -57,7 +46,6 @@ export default {
   },
   data() {
     return {
-      visible: false,
       emojiList: emojiList,
       curTab: "QQ",
       tabList: ["QQ", "表情包", "ZBN", "自定义"]

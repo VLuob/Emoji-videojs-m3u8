@@ -5,15 +5,6 @@
       <ipt-edit class="beautiful" emoji v-model="checkHtml" />
       <button @click="ok">发送</button>
     </div>
-    <div>
-      非转义:
-      <div v-html="nhtml" class="html"></div>
-    </div>
-    <div>
-      转义:
-      <div v-html="html" class="html"></div>
-    </div>
-
     <div class="box">
       <div class="c1">1</div>
       <div class="c2" :class="{ hide: hide }">2</div>
@@ -23,7 +14,7 @@
       <h3 slot="vi"></h3>
       <h3 slot="video">视频组件</h3>
       <template slot-scope="scope">
-        <h3>{{ scope.row}}</h3>
+        <h3>{{ scope.row }}</h3>
       </template>
     </test>
   </div>

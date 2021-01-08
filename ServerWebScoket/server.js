@@ -26,7 +26,7 @@ wss.on("connection", function(ws) {
   wss.broadcast(
     JSON.stringify({ funName: "userCount", users: userNum, chat: chatList })
   ); //建立连接成功广播一次当前在线人数
-  console.log("Connected clients:", userNum);
+  console.log("在线人数:", userNum);
   //接收前端发送过来的数据
   ws.on("message", function(e) {
     var resData = JSON.parse(e);

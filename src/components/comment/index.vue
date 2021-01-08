@@ -162,7 +162,6 @@ export default {
         _this.ws = ws;
         ws.onopen = function(e) {
           console.log("服务器连接成功");
-          //ws.send(JSON.stringify({ addName: "张三" }));
         };
         ws.onclose = function(e) {
           console.log("服务器连接关闭");
