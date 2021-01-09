@@ -25,6 +25,8 @@
         <h3>Time:{{ scope.row.time }}</h3>
       </template>
     </test>
+    <div class="tips" :class="tclass">进入直播</div>
+    <div class="d"></div>
   </div>
 </template>
 <script>
@@ -45,20 +47,21 @@ export default {
       userID: "",
       ipt: "",
       users: "", //在线人数
-      replaceTxt: replaceTxt,
-      list: []
+      list: [],
+      tclass: ""
     };
   },
   computed: {},
   mounted() {
-     console.log(  this.$socket)
+    var myWorker = new Worker("worker.js");
+    console.log(this.$socket, myWorker);
   },
   sockets: {
     //这里是监听connect事件
     connection(data) {
-      console.log(data.msg);
       this.users = data.users;
       this.list = data.list;
+      console.log(data.msg);
     },
     msginfo(data) {
       this.list = data.list;
@@ -66,16 +69,27 @@ export default {
       console.log(data);
     },
     leaveInfo(data) {
-      this.$notify.info({
-        title: "消息",
-        message: data
-      });
+      if (data) {
+        this.$notify.info({
+          title: "消息",
+          message: data
+        });
+      } else {
+        this.tclass = "tshow";
+        setTimeout(_ => {
+          this.tclass = "";
+        }, 800);
+      }
     },
     ipt(data) {
       this.ipt = data;
+    },
+    disconnect(data) {
+      console.log(data);
     }
   },
   methods: {
+    replaceTxt,
     onEmoJi(emoji) {
       this.$refs.edit.onEmoJi(emoji);
     },
@@ -88,7 +102,7 @@ export default {
     sendBtn() {
       if (this.checkHtml) {
         this.$socket.emit("msginfo", {
-          say: replaceImg(this.checkHtml),
+          say: replaceI(this.checkHtml),
           time: getNowTime("hms")
         });
         this.checkHtml = "";
@@ -111,6 +125,12 @@ export default {
 };
 </script>
 <style scoped lang="less">
+.d {
+  height: 12px;
+  width: 21px;
+  background: url("/static/qqface/qqface/qqface.png") no-repeat;
+  background-position: 0 0;
+}
 .beautiful {
   width: 300px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
@@ -127,5 +147,34 @@ export default {
 }
 .h3 {
   margin: 0 20px;
+}
+.socket {
+  position: relative;
+  .tips {
+    position: absolute;
+    right: 0;
+    left: 0;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    opacity: 0;
+  }
+  .tshow {
+    animation: opacitys 0.8s ease-in-out 0s 1 alternate forwards;
+  }
+  @keyframes opacitys {
+    0% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 }
 </style>

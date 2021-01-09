@@ -1,527 +1,632 @@
 [
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[微笑]",
-    "icon": "/static/qqface/qqface/qqface0.png"
+    "name": "cyface0",
+    "icon": "width: 22px; height: 21px;background-position: -0 -414px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[撇嘴]",
-    "icon": "/static/qqface/qqface/qqface1.png"
+    "name": "cyface1",
+    "icon": "width: 21px; height:21px;background-position: -0 -435px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[色]",
-    "icon": "/static/qqface/qqface/qqface2.png"
+    "name": "cyface2",
+    "icon": "width: 20px; height: 21px; background-position: -0 -456px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[发呆]",
-    "icon": "/static/qqface/qqface/qqface3.png"
+    "name": "cyface3",
+    "icon": "width: 21px; height: 21px;background-position: -0 -477px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[得意]",
-    "icon": "/static/qqface/qqface/qqface4.png"
+    "name": "cyface4",
+    "icon": "width: 21px; height: 21px;background-position: -0 -498px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[流泪]",
-    "icon": "/static/qqface/qqface/qqface5.png"
+    "name": "cyface5",
+    "icon": "width: 20px; height: 22px; background-position: -0 -1338px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[害羞]",
-    "icon": "/static/qqface/qqface/qqface6.png"
+    "name": "cyface6",
+    "icon": "width: 21px; height: 21px;background-position: -0 -519px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[闭嘴]",
-    "icon": "/static/qqface/qqface/qqface7.png"
+    "name": "cyface7",
+    "icon": "width: 21px; height: 23px; background-position: -0 -2174px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[睡]",
-    "icon": "/static/qqface/qqface/qqface8.png"
+    "name": "cyface8",
+    "icon": "width: 21px; height: 21px; background-position: -0 -540px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[大哭]",
-    "icon": "/static/qqface/qqface/qqface9.png"
+    "name": "cyface9",
+    "icon": "width: 21px; height: 21px;background-position: -0 -561px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[尴尬]",
-    "icon": "/static/qqface/qqface/qqface10.png"
+    "name": "cyface10",
+    "icon": "width: 21px; height: 21px; background-position: -0 -582px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[发怒]",
-    "icon": "/static/qqface/qqface/qqface11.png"
+    "name": "cyface11",
+    "icon": "width: 21px; height: 21px; background-position: -0 -603px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[调皮]",
-    "icon": "/static/qqface/qqface/qqface12.png"
+    "name": "cyface12",
+    "icon": "width: 21px; height: 21px; background-position: -0 -624px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[呲牙]",
-    "icon": "/static/qqface/qqface/qqface13.png"
+    "name": "cyface13",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1360px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[惊讶]",
-    "icon": "/static/qqface/qqface/qqface14.png"
+    "name": "cyface14",
+    "icon": " width: 21px; height: 22px;background-position: -0 -1382px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[难过]",
-    "icon": "/static/qqface/qqface/qqface15.png"
+    "name": "cyface15",
+    "icon": "width: 22px; height: 21px; background-position: -0 -645px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[冷汗]",
-    "icon": "/static/qqface/qqface/qqface16.png"
+    "name": "cyface16",
+    "icon": "width: 21px; height: 21px; background-position: -0 -666px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[抓狂]",
-    "icon": "/static/qqface/qqface/qqface17.png"
+    "name": "cyface17",
+    "icon": "width: 21px; height: 21px; background-position: -0 -687px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[吐]",
-    "icon": "/static/qqface/qqface/qqface18.png"
+    "name": "cyface18",
+    "icon": "width: 21px; height: 21px; background-position: -0 -708px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[偷笑]",
-    "icon": "/static/qqface/qqface/qqface19.png"
+    "name": "cyface19",
+    "icon": "width: 21px; height: 21px; background-position: -0 -729px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[可爱]",
-    "icon": "/static/qqface/qqface/qqface20.png"
+    "name": "cyface20",
+    "icon": "width: 21px; height: 21px;background-position: -0 -750px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[白眼]",
-    "icon": "/static/qqface/qqface/qqface21.png"
+    "name": "cyface21",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1404px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[傲慢]",
-    "icon": "/static/qqface/qqface/qqface22.png"
+    "name": "cyface22",
+    "icon": "width: 21px; height: 21px; background-position: -0 -771px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[饥饿]",
-    "icon": "/static/qqface/qqface/qqface23.png"
+    "name": "cyface23",
+    "icon": "width: 21px; height: 21px;background-position: -0 -792px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[困]",
-    "icon": "/static/qqface/qqface/qqface24.png"
+    "name": "cyface24",
+    "icon": "width: 21px; height: 21px;background-position: -0 -813px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[惊恐]",
-    "icon": "/static/qqface/qqface/qqface25.png"
+    "name": "cyface25",
+    "icon": "width: 21px; height: 21px; background-position: -0 -834px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[流汗]",
-    "icon": "/static/qqface/qqface/qqface26.png"
+    "name": "cyface26",
+    "icon": "width: 21px; height: 20px;background-position: -0 -154px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[悠闲]",
-    "icon": "/static/qqface/qqface/qqface27.png"
+    "name": "cyface27",
+    "icon": "width: 22px; height: 21px;background-position: -0 -855px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[酷]",
-    "icon": "/static/qqface/qqface/qqface28.png"
+    "name": "cyface28",
+    "icon": "width: 21px; height: 20px;background-position: -0 -174px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[憨笑]",
-    "icon": "/static/qqface/qqface/qqface29.png"
+    "name": "cyface29",
+    "icon": "width: 19px; height: 20px; background-position: -0 -194px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[奋斗]",
-    "icon": "/static/qqface/qqface/qqface30.png"
+    "name": "cyface30",
+    "icon": "width: 22px; height: 22px;background-position: -0 -1426px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[咒骂]",
-    "icon": "/static/qqface/qqface/qqface31.png"
+    "name": "cyface31",
+    "icon": "width: 21px; height: 21px;background-position: -0 -876px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[疑问]",
-    "icon": "/static/qqface/qqface/qqface32.png"
+    "name": "cyface32",
+    "icon": "width: 23px; height: 21px;background-position: -0 -897px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[嘘]",
-    "icon": "/static/qqface/qqface/qqface33.png"
+    "name": "cyface33",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1448px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[晕]",
-    "icon": "/static/qqface/qqface/qqface34.png"
+    "name": "cyface34",
+    "icon": "width: 21px; height: 21px; background-position: -0 -918px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[衰]",
-    "icon": "/static/qqface/qqface/qqface35.png"
+    "name": "cyface35",
+    "icon": "width: 21px; height: 20px;background-position: -0 -214px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[骷髅]",
-    "icon": "/static/qqface/qqface/qqface36.png"
+    "name": "cyface36",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1470px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[敲打]",
-    "icon": "/static/qqface/qqface/qqface37.png"
+    "name": "cyface37",
+    "icon": "width: 21px; height: 18px;background-position: -0 -46px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[再见]",
-    "icon": "/static/qqface/qqface/qqface38.png"
+    "name": "cyface38",
+    "icon": "width: 21px; height: 21px;background-position: -0 -939px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[擦汗]",
-    "icon": "/static/qqface/qqface/qqface39.png"
+    "name": "cyface39",
+    "icon": "width: 21px; height: 20px;background-position: -0 -234px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[抠鼻]",
-    "icon": "/static/qqface/qqface/qqface40.png"
+    "name": "cyface40",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1492px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[鼓掌]",
-    "icon": "/static/qqface/qqface/qqface41.png"
+    "name": "cyface41",
+    "icon": "width: 23px; height: 21px;background-position: -0 -960px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[糗大了]",
-    "icon": "/static/qqface/qqface/qqface42.png"
+    "name": "cyface42",
+    "icon": "width: 21px; height: 21px;background-position: -0 -981px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[坏笑]",
-    "icon": "/static/qqface/qqface/qqface43.png"
+    "name": "cyface43",
+    "icon": "width: 21px; height: 21px;background-position: -0 -1002px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[疯了]",
-    "icon": "/static/qqface/qqface/qqface44.png"
+    "name": "cyface44",
+    "icon": "width: 22px; height: 20px;background-position: -0 -254px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[左哼哼]",
-    "icon": "/static/qqface/qqface/qqface45.png"
+    "name": "cyface45",
+    "icon": "width: 22px; height: 21px;background-position: -0 -1023px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[右哼哼]",
-    "icon": "/static/qqface/qqface/qqface46.png"
+    "name": "cyface46",
+    "icon": "width: 21px; height: 21px;background-position: -0 -1044px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[哈欠]",
-    "icon": "/static/qqface/qqface/qqface47.png"
+    "name": "cyface47",
+    "icon": "width: 21px; height: 21px;background-position: -0 -1065px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[鄙视]",
-    "icon": "/static/qqface/qqface/qqface48.png"
+    "name": "cyface48",
+    "icon": "width: 20px; height: 22px; background-position: -0 -1514px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[委屈]",
-    "icon": "/static/qqface/qqface/qqface49.png"
+    "name": "cyface49",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1536px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[快哭了]",
-    "icon": "/static/qqface/qqface/qqface50.png"
+    "name": "cyface50",
+    "icon": "width: 21px; height: 21px;background-position: -0 -1086px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[阴险]",
-    "icon": "/static/qqface/qqface/qqface51.png"
+    "name": "cyface51",
+    "icon": "width: 21px; height: 21px; background-position: -0 -1107px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[亲亲]",
-    "icon": "/static/qqface/qqface/qqface52.png"
+    "name": "cyface52",
+    "icon": "width: 21px; height: 21px;background-position: -0 -1128px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[吓]",
-    "icon": "/static/qqface/qqface/qqface53.png"
+    "name": "cyface53",
+    "icon": "width: 21px; height: 21px;background-position: -0 -1149px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[可怜]",
-    "icon": "/static/qqface/qqface/qqface54.png"
+    "name": "cyface54",
+    "icon": "width: 21px; height: 21px;background-position: -0 -1170px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[西瓜]",
-    "icon": "/static/qqface/qqface/qqface55.png"
+    "name": "cyface55",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1558px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[啤酒]",
-    "icon": "/static/qqface/qqface/qqface56.png"
+    "name": "cyface56",
+    "icon": "width: 18px; height: 22px;background-position: -0 -1580px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[篮球]",
-    "icon": "/static/qqface/qqface/qqface57.png"
+    "name": "cyface57",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1602px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[乒乓]",
-    "icon": "/static/qqface/qqface/qqface58.png"
+    "name": "cyface58",
+    "icon": "width: 21px; height: 20px;background-position: -0 -274px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[菜刀]",
-    "icon": "/static/qqface/qqface/qqface59.png"
+    "name": "cyface59",
+    "icon": "width: 21px; height: 17px;background-position: -0 -12px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[猪头]",
-    "icon": "/static/qqface/qqface/qqface60.png"
+    "name": "cyface60",
+    "icon": "width: 21px; height: 22px; background-position: -0 -1624px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[玫瑰]",
-    "icon": "/static/qqface/qqface/qqface61.png"
+    "name": "cyface61",
+    "icon": "width: 11px; height: 22px;background-position: -0 -1646px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[凋谢]",
-    "icon": "/static/qqface/qqface/qqface62.png"
+    "name": "cyface62",
+    "icon": "width: 20px; height: 21px;background-position: -0 -1191px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[蛋糕]",
-    "icon": "/static/qqface/qqface/qqface63.png"
+    "name": "cyface63",
+    "icon": "width: 17px; height: 22px;background-position: -0 -1668px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[闪电]",
-    "icon": "/static/qqface/qqface/qqface64.png"
+    "name": "cyface64",
+    "icon": "width: 14px; height: 22px; background-position: -0 -1690px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[足球]",
-    "icon": "/static/qqface/qqface/qqface65.png"
+    "name": "cyface65",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1712px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[瓢虫]",
-    "icon": "/static/qqface/qqface/qqface66.png"
+    "name": "cyface66",
+    "icon": "width: 21px; height: 22px; background-position: -0 -1734px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[咖啡]",
-    "icon": "/static/qqface/qqface/qqface67.png"
+    "name": "cyface67",
+    "icon": "width: 21px; height: 21px;background-position: -0 -1212px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[饭]",
-    "icon": "/static/qqface/qqface/qqface68.png"
+    "name": "cyface68",
+    "icon": "width: 21px; height: 21px;background-position: -0 -1233px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[炸弹]",
-    "icon": "/static/qqface/qqface/qqface69.png"
+    "name": "cyface69",
+    "icon": "width: 21px; height: 20px;background-position: -0 -294px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[刀]",
-    "icon": "/static/qqface/qqface/qqface70.png"
+    "name": "cyface70",
+    "icon": "width: 19px; height: 21px;background-position: -0 -1254px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[便便]",
-    "icon": "/static/qqface/qqface/qqface71.png"
+    "name": "cyface71",
+    "icon": "width: 18px; height: 21px;background-position: -0 -1275px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[爱心]",
-    "icon": "/static/qqface/qqface/qqface72.png"
+    "name": "cyface72",
+    "icon": "width: 21px; height: 18px;background-position: -0 -64px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[心碎]",
-    "icon": "/static/qqface/qqface/qqface73.png"
+    "name": "cyface73",
+    "icon": "width: 21px; height: 18px;background-position: -0 -82px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[嘴唇]",
-    "icon": "/static/qqface/qqface/qqface74.png"
+    "name": "cyface74",
+    "icon": "width: 20px; height: 12px;background-position: -0 -0;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[礼物]",
-    "icon": "/static/qqface/qqface/qqface75.png"
+    "name": "cyface75",
+    "icon": "width: 19px; height: 22px;background-position: -0 -1756px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[拥抱]",
-    "icon": "/static/qqface/qqface/qqface76.png"
+    "name": "cyface76",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1778px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[强]",
-    "icon": "/static/qqface/qqface/qqface77.png"
+    "name": "cyface77",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1800px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[弱]",
-    "icon": "/static/qqface/qqface/qqface78.png"
+    "name": "cyface78",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1822px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[胜利]",
-    "icon": "/static/qqface/qqface/qqface79.png"
+    "name": "cyface79",
+    "icon": "width: 18px; height: 22px;background-position: -0 -1844px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[抱拳]",
-    "icon": "/static/qqface/qqface/qqface80.png"
+    "name": "cyface80",
+    "icon": "width: 21px; height: 20px;background-position: -0 -314px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[拳头]",
-    "icon": "/static/qqface/qqface/qqface81.png"
+    "name": "cyface81",
+    "icon": "width: 21px; height: 21px;background-position: -0 -1296px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[差劲]",
-    "icon": "/static/qqface/qqface/qqface82.png"
+    "name": "cyface82",
+    "icon": "width: 18px; height: 22px;background-position: -0 -1866px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[爱你]",
-    "icon": "/static/qqface/qqface/qqface83.png"
+    "name": "cyface83",
+    "icon": "width: 21px; height: 22px;background-position: -0 -1888px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[NO]",
-    "icon": "/static/qqface/qqface/qqface84.png"
+    "name": "cyface84",
+    "icon": "width: 18px; height: 22px;background-position: -0 -1910px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[OK]",
-    "icon": "/static/qqface/qqface/qqface85.png"
+    "name": "cyface85",
+    "icon": "width: 20px; height: 22px;background-position: -0 -1932px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[月亮]",
-    "icon": "/static/qqface/qqface/qqface86.png"
+    "name": "cyface86",
+    "icon": "width: 21px; height: 20px; background-position: -0 -334px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[太阳]",
-    "icon": "/static/qqface/qqface/qqface87.png"
+    "name": "cyface87",
+    "icon": "width: 21px; height: 20px;background-position: -0 -354px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[勾引]",
-    "icon": "/static/qqface/qqface/qqface88.png"
+    "name": "cyface88",
+    "icon": "width: 21px; height: 18px; background-position: -0 -100px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[握手]",
-    "icon": "/static/qqface/qqface/qqface89.png"
+    "name": "cyface89",
+    "icon": "width: 21px; height: 17px;background-position: -0 -29px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[爱情]",
-    "icon": "/static/qqface/qqface/qqface90.png"
+    "name": "cyface90",
+    "icon": "width: 21px; height: 18px;background-position: -0 -118px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[飞吻]",
-    "icon": "/static/qqface/qqface/qqface91.png"
+    "name": "cyface91",
+    "icon": "width: 20px; height: 22px;background-position: -0 -1954px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[发抖]",
-    "icon": "/static/qqface/qqface/qqface92.png"
+    "name": "cyface92",
+    "icon": "width: 20px; height: 22px; background-position: -0 -1976px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[怄火]",
-    "icon": "/static/qqface/qqface/qqface93.png"
+    "name": "cyface93",
+    "icon": "width: 20px; height: 22px;background-position: -0 -1998px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[转圈]",
-    "icon": "/static/qqface/qqface/qqface94.png"
+    "name": "cyface94",
+    "icon": "width: 20px; height: 22px;background-position: -0 -2020px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[磕头]",
-    "icon": "/static/qqface/qqface/qqface95.png"
+    "name": "cyface95",
+    "icon": "width: 18px; height: 22px;background-position: -0 -2042px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[回头]",
-    "icon": "/static/qqface/qqface/qqface96.png"
+    "name": "cyface96",
+    "icon": "width: 19px; height: 22px;background-position: -0 -2064px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[激动]",
-    "icon": "/static/qqface/qqface/qqface97.png"
+    "name": "cyface97",
+    "icon": "width: 21px; height: 22px;background-position: -0 -2086px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[乱舞]",
-    "icon": "/static/qqface/qqface/qqface98.png"
+    "name": "cyface98",
+    "icon": "width: 21px; height: 22px;background-position: -0 -2108px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[献吻]",
-    "icon": "/static/qqface/qqface/qqface99.png"
+    "name": "cyface99",
+    "icon": "width: 21px; height: 22px;background-position: -0 -2130px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[右太极]",
-    "icon": "/static/qqface/qqface/qqface100.png"
+    "name": "cyface100",
+    "icon": "width: 18px; height: 22px;background-position: -0 -2152px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[跳跳]",
-    "icon": "/static/qqface/qqface/qqface101.png"
+    "name": "cyface101",
+    "icon": "width: 21px; height: 20px;background-position: -0 -374px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[跳绳]",
-    "icon": "/static/qqface/qqface/qqface102.png"
+    "name": "cyface102",
+    "icon": "width: 20px; height: 20px;background-position: -0 -394px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[左太极]",
-    "icon": "/static/qqface/qqface/qqface103.png"
+    "name": "cyface103",
+    "icon": "width: 17px; height: 21px;background-position: -0 -1317px;"
   },
   {
-    "category": "qqface",
+    "category": "cyface",
     "value": "[投降]",
-    "icon": "/static/qqface/qqface/qqface104.png"
+    "name": "cyface104",
+    "icon": "width: 21px; height: 18px;background-position: -0 -136px;"
   }
 ]

@@ -1,24 +1,26 @@
 import qqfaceList from "../../../static/qqface/json/translateqqface.json";
+const bg = "/static/qqface/qqface/qqface.png";
+const opa = "/static/qqface/qqface/opaticy.png";
 //单个表情符替换成img标签
 function imgHTML(info) {
-  const imgSrc = qqfaceList.find(item => item.value == info).icon;
-  return `<img draggable="false" src="${imgSrc}">`;
+  const imgSrc = qqfaceList.find(item => item.value == info);
+  return `<img src='${opa}' style='background:url("${bg}");${imgSrc.icon}' emoji=${imgSrc.name} draggable="false" />`;
 }
 //字符串内的img标签替换成src属性转换的表情符
 function replaceImg(text) {
-  return text.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function(
+  return text.replace(/<img [^>]*emoji=['"]([^'"]+)[^>]*>/gi, function(
     match,
     capture
   ) {
     //capture,返回每个匹配的字符串
-    return qqfaceList.find(item => item.icon == capture).value;
+    return qqfaceList.find(item => item.name == capture).value;
   });
 }
 //字符串内的表情符批量替换成img标签
 function replaceTxt(strCont) {
   for (var i in qqfaceList) {
     var item = qqfaceList[i];
-    var strimg = `<img draggable="false" src="${item.icon}">`;
+    var strimg = `<img src='${opa}' style='background:url("${bg}");${item.icon}' draggable="false" emoji=${item.name}>`;
     var reg = new RegExp("\\" + item.value, "g");
     strCont = strCont.replace(reg, strimg);
   }

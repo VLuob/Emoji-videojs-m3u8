@@ -6,13 +6,12 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "vue-dplayer/dist/vue-dplayer.css";
 window.Hls = require("hls.js");
-import socketio from "socket.io-client";
 import VueSocketio from "vue-socket.io";
 //Vue.use(VueSocketio, socketio("http://localhost:8080"));
 Vue.use(
   new VueSocketio({
     debug: true,
-    connection: "http://localhost:4001",
+    connection: "http://localhost:4001"
   })
 );
 Vue.use(ElementUI);

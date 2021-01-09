@@ -196,6 +196,7 @@ export default {
     userHandle(item) {
       switch (item) {
         case "引用":
+          console.log(this.curUserInfo);
           !this.unSpeak &&
             this.$refs.edit.setIptValue(
               replaceTxt(this.checkHtml + this.curUserInfo.say)

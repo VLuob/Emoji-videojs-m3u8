@@ -9,6 +9,7 @@ var levalList = [];
 io.on("connection", socket => {
   users++;
   socket.emit("connection", { msg: "连接成功", list: levalList, users: users });
+  io.emit("leaveInfo", "");
   console.log(users);
   socket.on("msginfo", msg => {
     levalList.unshift({ userID: socket.id, ...msg });
