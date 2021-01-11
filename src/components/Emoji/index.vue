@@ -1,34 +1,32 @@
 <template>
-  <div>
-    <el-popover placement="bottom" width="430" trigger="click">
-      <div class="emojiTab">
-        <div class="emojiTab_tab">
-          <span
-            v-for="item in tabList"
-            :key="item"
-            @click="curTab = item"
-            :style="{ background: curTab == item ? '#09f' : '' }"
-          >
-            {{ item }}
-          </span>
-        </div>
-        <div class="emotion-box" v-if="curTab == 'QQ'">
-          <div class="emotion-box-line" v-for="(line, i) in emojiList" :key="i">
-            <emoji
-              class="emotion-item"
-              v-for="(item, i) in line"
-              :key="i"
-              :title="item.replace(/\[|]/g, '')"
-              @click.native="onEmojiHandler(item)"
-              >{{ item }}</emoji
-            >
-          </div>
-        </div>
-        <div v-else class="notEmoji">该分类暂无表情包</div>
+  <el-popover placement="bottom" width="430" trigger="click">
+    <div class="emojiTab">
+      <div class="emojiTab_tab">
+        <span
+          v-for="item in tabList"
+          :key="item"
+          @click="curTab = item"
+          :style="{ background: curTab == item ? '#09f' : '' }"
+        >
+          {{ item }}
+        </span>
       </div>
-      <img slot="reference" draggable="false" :src="emoIcon" align="middle" />
-    </el-popover>
-  </div>
+      <div class="emotion-box" v-if="curTab == 'QQ'">
+        <div class="emotion-box-line" v-for="(line, i) in emojiList" :key="i">
+          <emoji
+            class="emotion-item"
+            v-for="(item, i) in line"
+            :key="i"
+            :title="item.replace(/\[|]/g, '')"
+            @click.native="onEmojiHandler(item)"
+            >{{ item }}</emoji
+          >
+        </div>
+      </div>
+      <div v-else class="notEmoji">该分类暂无表情包</div>
+    </div>
+    <img slot="reference" draggable="false" :src="emoIcon" align="middle" />
+  </el-popover>
 </template>
 
 <script>

@@ -2,42 +2,57 @@
   <div class="vibox">
     <main id="vi">
       <div class="video" :class="{ left: isRetract }">
-        <!--  <v-DPlayer class="video_box" /> -->
-        <!-- <DPlayer></DPlayer> -->
-        <m-video class="video_box" />
+        <dPlayer
+          :video="video"
+          class="video_box"
+          ref="live"
+          @play="play"
+          :logo="require('@/assets/img/示爱.gif')"
+        />
       </div>
       <div class="comment" :class="{ hide: isRetract }">
-        <keep-alive>
-          <comment @changeSH="changeSH" :isRetract="isRetract" />
-        </keep-alive>
+        <comment @changeSH="changeSH" :isRetract="isRetract" />
       </div>
     </main>
   </div>
 </template>
 <script>
-import MVideo from "@/components/MVideo";
-import DPlayer from "@/components/DPlayer";
+import dPlayer from "@/components/dPlayer";
 import comment from "@/components/comment";
-import vDPlayer from "@/components/vDPlayer";
 export default {
   components: {
     comment,
-    MVideo,
-    vDPlayer,
-    DPlayer
+    dPlayer
   },
   data() {
     return {
-      isRetract: false //是否收起
+      isRetract: false, //是否收起,
+      video: {
+        url: "",
+        //"https://www.libdiy.com/upload/article/20138_zhibianniu/2020/7-30/videos/202007301359264470.mp4",
+        //"https://cdn.letv-cdn.com/2018/12/05/JOCeEEUuoteFrjCg/playlist.m3u8",
+        //pic: "http://vjs.zencdn.net/v/oceans.png", //视频封面
+        //thumbnails: "http://vjs.zencdn.net/v/oceans.png", //视频缩略图
+        type: "auto" //视频类型
+        // quality: [], //清晰度
+        // defaultQuality: "" //默认播放视频的清晰度
+      }
     };
   },
   computed: {},
+  created() {},
   mounted() {
     console.log(window.screen.height);
   },
   methods: {
     changeSH() {
       this.isRetract = !this.isRetract;
+    },
+    play() {
+      console.log("play");
+    },
+    setVideoTime(time) {
+      this.$refs.live.setVideoTime(time);
     }
   }
 };

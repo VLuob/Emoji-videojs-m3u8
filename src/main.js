@@ -8,12 +8,12 @@ import "vue-dplayer/dist/vue-dplayer.css";
 window.Hls = require("hls.js");
 import VueSocketio from "vue-socket.io";
 //Vue.use(VueSocketio, socketio("http://localhost:8080"));
-Vue.use(
+/* Vue.use(
   new VueSocketio({
     debug: true,
     connection: "http://localhost:4001"
   })
-);
+); */
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
 

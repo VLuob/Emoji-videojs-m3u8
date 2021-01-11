@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import other from "@/index";
 import video from "@/video";
-import vi from "@/vi";
+import live from "@/live";
 import socket from "@/socket/socket.vue";
 Vue.use(Router);
 export default new Router({
@@ -18,9 +18,9 @@ export default new Router({
       component: video
     },
     {
-      path: "/vi",
-      name: "vi",
-      component: vi
+      path: "/live",
+      name: "live",
+      component: live
     },
     {
       path: "/socket",

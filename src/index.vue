@@ -14,7 +14,8 @@
       <h3 slot="vi"></h3>
       <h3 slot="video">视频组件</h3>
       <template slot-scope="scope">
-        <h3>{{ scope.row }}</h3>
+        <h3>{{ scope.row.id }}</h3>
+        <h3>{{ scope.row.title }}</h3>
       </template>
     </test>
   </div>

@@ -105,8 +105,8 @@ export default {
   },
   data() {
     return {
-      checkHtml: "", //输入框
       ws: null, //WebSocket实例
+      checkHtml: "", //输入框
       unSpeak: false, //是否禁言
       count: null, //在线人数
       replaceTxt: replaceTxt, //表情文字替换表情方法
@@ -130,7 +130,7 @@ export default {
   computed: {},
   mounted() {
     this.initWebSocket();
-    console.log();
+    console.log(navigator.userAgent);
   },
   methods: {
     //发送消息按钮
@@ -161,12 +161,15 @@ export default {
         let ws = new WebSocket("ws://192.168.1.11:8181");
         _this.ws = ws;
         ws.onopen = function(e) {
+          _this.$emit("onopen", e);
           console.log("服务器连接成功");
         };
         ws.onclose = function(e) {
+          _this.$emit("onclose", e);
           console.log("服务器连接关闭");
         };
         ws.onerror = function() {
+          _this.$emit("onerror");
           console.log("服务器连接出错");
         };
         ws.onmessage = function(e) {
@@ -196,7 +199,6 @@ export default {
     userHandle(item) {
       switch (item) {
         case "引用":
-          console.log(this.curUserInfo);
           !this.unSpeak &&
             this.$refs.edit.setIptValue(
               replaceTxt(this.checkHtml + this.curUserInfo.say)
@@ -224,8 +226,7 @@ export default {
     this.locationBottom();
   },
   destroyed() {
-    let _this = this;
-    _this.ws.close();
+    this.ws.close();
   }
 };
 </script>
