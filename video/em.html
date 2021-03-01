@@ -110,8 +110,89 @@
     </canvas>
     <input class="excel-upload-input" id="file" type="file" />
     <button onclick="upload(this)">Upload</button>
+    <div id="content">@u1875799432486012313123@新te32131</div>
   </body>
   <script type="text/javascript">
+    function searchData(keyWord, list) {
+      if (!Array.isArray(list) && keyWord !== "") return;
+      let arr = [];
+      let keyword = keyWord.toLocaleLowerCase();
+      // 不区分大小写
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].indexOf(keyword) !== -1) arr.push(list[i]);
+      }
+      return arr;
+    }
+
+    function searchDatas(keyWord, list) {
+      if (!Array.isArray(list) && keyWord !== "") return;
+
+      let arr = [];
+
+      let reg = new RegExp(keyWord, "i");
+      // 不区分大小写
+
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].match(reg)) arr.push(list[i]);
+      }
+      return arr;
+    }
+
+    function createComparisonFunction(propertyName) {
+      return function(object1, object2) {
+        var value1 = object1[propertyName];
+        var value2 = object2[propertyName];
+
+        if (value1 > value2) {
+          return -1;
+        } else if (value1 < value2) {
+          return 1;
+        } else {
+          return 0;
+        }
+      };
+    }
+
+    var data = [
+      { name: "Zacharty", age: 31 },
+      { name: "Nicholas", age: 29 },
+      { name: "Nicholas", age: 29 },
+      { name: "Nicholas", age: 30 }
+    ];
+    // 这里根据数组对象中的age属性排序
+    console.log(data.sort(createComparisonFunction("age")));
+
+    function format(text, formatText) {
+      var a = formatText.sort((a, b) => b.length - a.length);
+      return text.replace(
+        new RegExp("(" + a.join("|") + ")", "g"),
+        '<span class="red">$1</span>'
+      );
+    }
+    const formatText = ["腾讯云", "云", "云服务", "云端"];
+    const text =
+      "腾讯云，是腾讯推出的云端运算服务，发布全球云服务云朵版图，构建覆盖全球的数据中心节点，在更多地区跟全球的合作伙伴共同构建，为中国出海企业以及海外本土企业提供云服务。";
+    console.log(format(text, formatText));
+    //亮匹色配颜高;
+    function keywordscolorful(str, key) {
+      var reg = new RegExp("(" + key + ")", "g");
+      var newstr = str.replace(reg, "<font style='background:#ff0;'>$1</font>");
+      return newstr;
+    }
+
+    var a = keywordscolorful("123456", "2");
+
+    //------------------------------------
+    function ReplaceStr(str) {
+      var content = document.getElementById("content").innerHTML;
+      content = content.replace(
+        new RegExp(str, "gi"),
+        "<font color='red'>" + str + "</font>"
+      );
+      console.log(content);
+      document.getElementById("content").innerHTML = content;
+    }
+    ReplaceStr("@u18757994324860");
     function upload(e) {
       console.log(document.getElementById("file").files[0], e);
     }
@@ -163,7 +244,8 @@
       });
     }
     function ok() {
-      window.location.href = "http://localhost:5151/#/community?OrgId=40029";
+      window.location.href =
+        "http://localhost:8081/#/ClassCourse?cisid=40090&clsid=40355&ssoCode=xj3202iu1tlobc2djsh9fwv7rvuifc2005";
       const text = document.getElementById("test").innerHTML;
       let imgReg = /<img.*?(?:>|\/>)/gi; //匹配图片中的img标签
       let srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i; // 匹配图片中的src

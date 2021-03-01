@@ -99,14 +99,12 @@ export default {
       );
     },
     keydown() {
-      if (this.emoji) {
-        document.onkeydown = function(e) {
-          var ev = typeof event != "undefined" ? window.event : e;
-          if (ev.keyCode == 13) {
-            return false;
-          }
-        };
-      }
+      document.onkeydown = function(e) {
+        var ev = typeof event != "undefined" ? window.event : e;
+        if (ev.keyCode == 13) {
+          return false;
+        }
+      };
     }
   }
 };

@@ -1,5 +1,5 @@
 <template>
-  <div class="cyLive"></div>
+  <div></div>
 </template>
 <script>
 import DPlayer from "DPlayer";
