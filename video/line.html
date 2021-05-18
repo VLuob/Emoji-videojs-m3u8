@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      .item {
+        width: 100px;
+        height: 100px;
+        border: 1px solid purple;
+        position: absolute;
+      }
+      #div1 {
+        left: 100px;
+        top: 100px;
+      }
+      #div2 {
+        left: 200px;
+        top: 500px;
+      }
+      #div3 {
+        left: 500px;
+        top: 100px;
+      }
+      #div4 {
+        left: 400px;
+        top: 400px;
+      }
+    </style>
+    <script src="dom.jsPlumb-1.7.2-min.js"></script>
+  </head>
+  <body>
+    <div class="item" id="div1"></div>
+    <div class="item" id="div2"></div>
+    <div class="item" id="div3"></div>
+    <div class="item" id="div4"></div>
+  </body>
+  <script type="text/javascript">
+    jsPlumb.ready(function() {
+      //jsPlumb.connect({source: "div1", target: "div2", detachable: false});
+      //jsPlumb.draggable($(".item"));
+      //jsPlumb.draggable(jsPlumb.getSelector(".item"));
+      //$(".item").draggable();
+      //var greyEndpointOptions = {
+      //    endpoint: "Rectangle",
+      //    paintStyle: {width: 25, height: 21, fillStyle: "#666"},
+      //    isSource: true,
+      //    connectorStyle: {strokeStyle: "#666"},
+      //    isTarget: true
+      //};
+      //jsPlumb.addEndpoint("div1", {anchor: "Bottom"}, greyEndpointOptions);
+      //jsPlumb.addEndpoint("div2", {anchor: "Top"}, greyEndpointOptions);
+
+      var endpointOptions = {
+        isSource: true,
+        isTarget: true,
+        //endpoint: ["Dot", {radius: 30}],
+        endpoint: ["Rectangle", { width: 20, height: 10 }],
+        style: { fillStyle: "blue" },
+        //connector: ["Bezier", {curviness: 175}],
+        //connector: "Straight",
+        connector: "Flowchart",
+        connectorStyle: { lineWidth: 20, strokeStyle: "blue" },
+        scope: "blueline",
+        dragAllowedWhenFull: false,
+        paintStyle: { lineWidth: 25, strokeStyle: "cyan" }
+      };
+      var div1Endpoint = jsPlumb.addEndpoint(
+        "div1",
+        { anchor: "TopCenter" },
+        endpointOptions
+      );
+      var div2Endpoint = jsPlumb.addEndpoint(
+        "div2",
+        { anchor: "BottomCenter" },
+        endpointOptions
+      );
+
+      var sourceEndpoint = {
+        isSource: true,
+        endpoint: ["Dot", { radius: 50 }]
+      };
+      var targetEndpoint = {
+        endpoint: ["Rectangle", { width: 10, height: 10 }]
+      };
+      jsPlumb.addEndpoint("div3", sourceEndpoint);
+      jsPlumb.makeTarget("div4", targetEndpoint);
+    });
+  </script>
+</html>

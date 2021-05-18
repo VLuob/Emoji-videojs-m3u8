@@ -18,10 +18,22 @@
         <h3>{{ scope.row.title }}</h3>
       </template>
     </test>
+    <el-dropdown @command="handleCommand">
+      <span class="el-dropdown-link">
+        换肤<i class="el-icon-arrow-down el-icon--right"></i>
+      </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item command="a">红</el-dropdown-item>
+        <el-dropdown-item command="b">黄</el-dropdown-item>
+        <el-dropdown-item command="c">蓝</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
+    <div :class="style">
+      <div class="box_c">皮肤</div>
+    </div>
   </div>
 </template>
 <script>
-//DrarResize
 import IptEdit from "@/components/IptEdit";
 import test from "@/components/test";
 import { replaceImg, replaceTxt } from "@/components/Emoji/utils";
@@ -36,6 +48,7 @@ export default {
       html: "",
       nhtml: "",
       checkHtml: "",
+      style: "themb",
       hide: false,
       list: [
         { id: 1, title: "A" },
@@ -53,11 +66,28 @@ export default {
     ok() {
       this.html = replaceTxt(this.checkHtml);
       this.nhtml = replaceImg(this.checkHtml);
+    },
+    handleCommand(command) {
+      console.log(command);
     }
   }
 };
 </script>
 <style scoped lang="less">
+@import "./assets/css/animate.css";
+.thema {
+  .them();
+}
+.themb {
+  .them(#333, #09f);
+}
+.them(@bg:#09f,@co:#333) {
+  height: 50px;
+  width: 50px;
+  color: @co;
+  background: @bg;
+}
+
 h1 {
   cursor: pointer;
 }
