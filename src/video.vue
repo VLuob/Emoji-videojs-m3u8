@@ -4,18 +4,21 @@
     <!--  <drar-resize>123 </drar-resize> -->
     <!--  <MVideo></MVideo> -->
     <!-- <d-player></d-player> -->
-    <v-DPlayer></v-DPlayer>
+    <!--  <v-DPlayer></v-DPlayer> -->
+    <nPlayer></nPlayer>
   </div>
 </template>
 <script>
 import MVideo from "@/components/MVideo";
+import nPlayer from "@/components/nPlayer";
 import vDPlayer from "@/components/vDPlayer";
 import DrarResize from "@/components/DrarResize";
 export default {
   components: {
     MVideo,
     vDPlayer,
-    DrarResize
+    DrarResize,
+    nPlayer
   },
   data() {
     return {};

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@kevinfaguiar/vue-twemoji-picker": "^5.7.4",
+    "@nplayer/vue": "^1.0.5",
     "ant-design-vue": "^1.7.2",
     "dplayer": "^1.26.0",
     "element-ui": "^2.14.1",
@@ -20,6 +21,7 @@
     "hls.js": "^0.14.17",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
+    "nplayer": "^1.0.5",
     "path": "^0.12.7",
     "socket.io": "^3.0.5",
     "socket.io-client": "^3.0.5",
