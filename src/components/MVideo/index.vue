@@ -5,6 +5,7 @@
       ref="videoPlayer"
       class="video-js"
       id="videojs"
+      crossorigin="anonymous"
       @contextmenu.prevent="menuPlayer()"
       data-setup="{}"
     ></video>
@@ -128,6 +129,9 @@ export default {
       //   progressControl: false, //进度条
       //   playbackRateMenuButton: false //倍数按钮
       // };
+      document.getElementById(".videodemo").style.width = "120%";
+      document.getElementById(".videodemo").style.left = "-10%";
+      document.getElementById("#videojs").style.width = "100%";
       document.querySelector(".vjs-duration").remove();
       document.querySelector(".vjs-time-control").remove(); //已/未播放时间
       document.querySelector(".vjs-time-control").remove();
@@ -147,6 +151,11 @@ export default {
   outline: none;
   transition: all 0.3s;
   overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#videojs {
 }
 .controls {
   /* 隐藏进度条 */

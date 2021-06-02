@@ -2,10 +2,10 @@
   <div>
     <h1 @click="$router.push('/')">VIDEO</h1>
     <!--  <drar-resize>123 </drar-resize> -->
-    <!--  <MVideo></MVideo> -->
+    <MVideo></MVideo>
     <!-- <d-player></d-player> -->
     <!--  <v-DPlayer></v-DPlayer> -->
-    <nPlayer></nPlayer>
+    <!-- <nPlayer></nPlayer> -->
   </div>
 </template>
 <script>
