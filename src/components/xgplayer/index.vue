@@ -1,11 +1,5 @@
 <template>
-  <div class="hello">
-    <NPlayer
-      ref="player"
-      :options="{ src: 'https://v-cdn.zjol.com.cn/280443.mp4' }"
-      :set="setPlayer"
-    />
-  </div>
+  <div id="mse"></div>
 </template>
 
 <script>
@@ -23,10 +17,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hello {
-  height: 300px;
-  width: 300px;
-}
 h3 {
   margin: 40px 0 0;
 }

@@ -102,7 +102,7 @@ export default {
     sendBtn() {
       if (this.checkHtml) {
         this.$socket.emit("msginfo", {
-          say: replaceI(this.checkHtml),
+          say: replaceImg(this.checkHtml),
           time: getNowTime("hms")
         });
         this.checkHtml = "";

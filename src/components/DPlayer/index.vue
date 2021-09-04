@@ -37,7 +37,7 @@ export default {
   },
   mounted() {
     this.initPlayer();
-    this.removeAbout();
+    //this.removeAbout();
   },
   methods: {
     initPlayer() {
@@ -57,7 +57,35 @@ export default {
         hotkey: !this.live, //热键
         screenshot: !this.live, //开启截图
         autoplay: this.autoplay, //自动播放
-        playbackSpeed: [0.5, 0.75, 1, 1.25, 1.5, 2] //可选的播放速率，可以设置成自定义的数组
+        playbackSpeed: [0.5, 0.75, 1, 1.25, 1.5, 2], //可选的播放速率，可以设置成自定义的数组
+        video: {
+          //"http://www.w3school.com.cn/example/html5/mov_bbb.mp4",
+          url:
+            "https://cdn.letv-cdn.com/2018/12/05/JOCeEEUuoteFrjCg/playlist.m3u8",
+          /* "https://www.libdiy.com/upload/article/20138_zhibianniu/2020/7-30/videos/202007301359264470.mp4", */
+          //"https://cdn.letv-cdn.com/2018/12/05/JOCeEEUuoteFrjCg/playlist.m3u8",
+          //pic: "http://vjs.zencdn.net/v/oceans.png", //视频封面
+          //thumbnails: "http://vjs.zencdn.net/v/oceans.png", //视频缩略图
+          //type: "hls", //视频类型
+          // quality: [], //清晰度
+          quality: [
+            // 设置多个质量的视频
+            {
+              name: "高清",
+              url:
+                "https://cdn.letv-cdn.com/2018/12/05/JOCeEEUuoteFrjCg/playlist.m3u8",
+              type: "auto" // 'auto', 'hls', 'flv', 'dash', 'webtorrent', 'normal' 或 其他自定义类型
+            },
+            {
+              name: "标清",
+              url:
+                "https://cdn.letv-cdn.com/2018/12/05/JOCeEEUuoteFrjCg/playlist.m3u8",
+              type: "auto"
+            }
+          ],
+          defaultQuality: 0 // 默认是高清
+          //defaultQuality: "" //默认播放视频的清晰度
+        }
       }));
       player.on("play", () => {
         this.$emit("play");
@@ -86,6 +114,10 @@ export default {
       this.dp.seek(time);
     },
     removeAbout() {
+      let el = document.querySelector(".dplayer-video");
+      el.setAttribute("tabindex", "-1");
+      el.setAttribute("crossorigin", "anonymous");
+      el.setAttribute("role", "application");
       document.querySelector(".dplayer-menu").remove(); //隐藏右键菜单
       document.querySelector(".dplayer-mask").remove();
       if (this.live) {

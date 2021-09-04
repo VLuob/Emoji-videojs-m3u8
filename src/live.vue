@@ -2,6 +2,8 @@
   <div class="vibox">
     <main id="vi">
       <div class="video" :class="{ left: isRetract }">
+        <!--  <v-DPlayer class="video_box"></v-DPlayer> -->
+        <!-- <veDplayer /> -->
         <dPlayer
           :video="video"
           class="video_box"
@@ -10,25 +12,30 @@
           :logo="require('@/assets/img/示爱.gif')"
         />
       </div>
-      <div class="comment" :class="{ hide: isRetract }">
+      <!--    <div class="comment" :class="{ hide: isRetract }">
         <comment @changeSH="changeSH" :isRetract="isRetract" />
-      </div>
+      </div> -->
     </main>
   </div>
 </template>
 <script>
-import dPlayer from "@/components/dPlayer";
 import comment from "@/components/comment";
+import dPlayer from "@/components/dPlayer";
+import vDPlayer from "@/components/vDPlayer";
+import veDplayer from "@/components/veDplayer";
 export default {
   components: {
     comment,
-    dPlayer
+    dPlayer,
+    vDPlayer,
+    veDplayer
   },
   data() {
     return {
       isRetract: false, //是否收起,
       video: {
-        url: "",
+        url:
+          "https://cdn.letv-cdn.com/2018/12/05/JOCeEEUuoteFrjCg/playlist.m3u8",
         //"https://www.libdiy.com/upload/article/20138_zhibianniu/2020/7-30/videos/202007301359264470.mp4",
         //"https://cdn.letv-cdn.com/2018/12/05/JOCeEEUuoteFrjCg/playlist.m3u8",
         //pic: "http://vjs.zencdn.net/v/oceans.png", //视频封面
@@ -68,7 +75,6 @@ export default {
     .video {
       width: 80%;
       height: 100%;
-      padding: 40px 0 40px 40px;
       position: relative;
       left: 0;
       transition: all 0.8s;

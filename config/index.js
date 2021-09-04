@@ -3,13 +3,18 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require("path");
-
+//
 module.exports = {
   dev: {
     // Paths
     assetsSubDirectory: "static",
     assetsPublicPath: "/",
-    proxyTable: {},
+    proxyTable: {
+      // "/": {
+      //   target: "https://www.iqiyi.com", // 你请求的第三方接口
+      //   changeOrigin: true
+      // }
+    },
 
     // Various Dev Server settings
     host: "192.168.1.11", // can be overwritten by process.env.HOST
