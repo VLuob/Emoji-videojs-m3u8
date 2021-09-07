@@ -10,10 +10,10 @@ module.exports = {
     assetsSubDirectory: "static",
     assetsPublicPath: "/",
     proxyTable: {
-      // "/": {
-      //   target: "https://www.iqiyi.com", // 你请求的第三方接口
-      //   changeOrigin: true
-      // }
+      "/": {
+        target: "https://www.bilibili.com/", // 你请求的第三方接口
+        changeOrigin: true
+      }
     },
 
     // Various Dev Server settings

@@ -4,8 +4,10 @@
     <!-- <drar-resize>123 </drar-resize> -->
     <!-- <MVideo></MVideo> -->
     <!--   <v-DPlayer></v-DPlayer> -->
-    <!--  <cavasVideo /> -->
+    <!-- dplayer -->
     <veDplayer />
+    <!-- Chimee canvasVideo -->
+    <cavasVideo />
     <!--   <TcPlayer /> -->
     <!--  <zyvideo /> -->
     <!--  <vuevideo /> -->
