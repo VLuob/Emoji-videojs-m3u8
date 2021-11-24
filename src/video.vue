@@ -2,7 +2,7 @@
   <div>
     <h1 @click="$router.push('/')">VIDEO</h1>
     <!-- <drar-resize>123 </drar-resize> -->
-    <!-- <MVideo></MVideo> -->
+    <!--  <MVideo></MVideo> -->
     <!--   <v-DPlayer></v-DPlayer> -->
     <!-- dplayer -->
     <veDplayer />

@@ -12,6 +12,7 @@
     <canvas id="canvas1" class="cavas" style="width:100%"></canvas>
     <video
       id="video1"
+      class="videoCanvas"
       controls
       src="https://blz-videos.nosdn.127.net/1/OverWatch/OVR_D.VA_SHOOTING_STAR_zhCN_YT_PC_3.mp4"
       type="video/mp4"
@@ -48,25 +49,28 @@ export default {
     const Chimee = new ChimeeMobilePlayer({
       wrapper: "#wrapper", // video dom容器
       src: "https://cdn.letv-cdn.com/2018/12/05/JOCeEEUuoteFrjCg/playlist.m3u8",
-      isLive: true,
+      isLive: false,
       autoplay: false,
       controls: true,
       playsInline: true,
       preload: "auto",
       box: "hls",
       x5VideoPlayerFullscreen: true,
-      x5VideoOrientation: "landscape|portrait",
+      x5VideoOrientation: "landscape|portraint",
       xWebkitAirplay: true,
       muted: false,
       crossOrigin: true,
+      x5VideoPlayerType: true,
       disableUA: [
         "Mozilla/5.0 (Linux; Android 4.4.2; HM NOTE 1TD Build/KOT49H; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.97 Mobile Safari/537.36"
       ],
+      customConfig: {},
       kernels: {
         hls
       }
       //removeInnerPlugins: ["chimeeMobiControlbar", "chimeeState"] // 需要移除的插件
     });
+    console.info(Chimee);
     // const canvas = document.querySelector("canvas");
     //  const ctx = canvas.getContext("2d");
     //  const { width, height } = canvas;
@@ -120,11 +124,16 @@ export default {
     canvas.addEventListener("click", function() {
       play = !play;
       !play ? video.pause() : video.play();
-      console.log(play);
     });
     //监听视频可以播放
     video.oncanplay = function() {
       switchToCanvas(); //渲染canvas
+    };
+    video.onplay = function() {
+      console.log("Play");
+    };
+    video.onpause = function() {
+      console.log("Pause");
     };
     //canvas渲染
     function switchToCanvas() {
@@ -135,13 +144,15 @@ export default {
     }
   },
   /*
-  1.使用larkplayerH5视频插件通过配置基本参数在pc端插件自带控制条显示正常未被替换，在移动端ios，安卓系统自带浏览器内测试，ios在放大到全屏时插件被替换为系统自带播放器插件，安卓端在播放视频时被替换为系统自带播放器插件
-  2.通过使用canvas渲染图片属性将视频每隔几毫秒渲染撑图片在画布上显示呈视频形态，通过给画布添加点击视频控制视频的暂停播放作为视频的控制栏，在手机系统自带浏览器内显示，画布无法渲染视频，在pc环境下的移动端内显示正常
+
    */
   methods: {}
 };
 </script>
 <style scoped lang="less">
+.videoCanvas {
+  object-fit: fill;
+}
 h1 {
   cursor: pointer;
 }

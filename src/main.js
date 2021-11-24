@@ -6,6 +6,7 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "vue-dplayer/dist/vue-dplayer.css";
 window.Hls = require("hls.js");
+import 'lib-flexible'
 import NPlayer from "@nplayer/vue";
 import VueSocketio from "vue-socket.io";
 // Vue.use(VueSocketio, socketio("http://localhost:8080"));

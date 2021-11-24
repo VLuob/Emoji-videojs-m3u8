@@ -52,12 +52,12 @@ export default {
         ],
         controlBar: {
           fullscreenToggle: true, //全屏
-          pictureInPictureToggle: false, //画中画
+          pictureInPictureToggle: true, //画中画
           volumePanel: true, //声音
           playToggle: true, //播放按钮
           remainingTimeDisplay: true, //已播放时间
           progressControl: true, //进度条
-          playbackRateMenuButton: false //倍数按钮
+          playbackRateMenuButton: true //倍数按钮
         }
       }
     };
@@ -70,8 +70,13 @@ export default {
   mounted() {
     this.myvideo();
     this.initVideo();
-    //this.removeControl(); //直播调用
+    this.removeControl(); //直播调用
     this.w = window.innerWidth;
+    window.onresize = function() {
+      setTimeout(() => {
+        console.log(window.innerWidth);
+      }, 200);
+    };
   },
   methods: {
     myvideo() {
@@ -85,10 +90,13 @@ export default {
           this.currentTime(20); //快进到指定时段
           console.log("开始播放", this.currentTime());
           //  document.querySelector(".vjs-big-play-button").style.display = "none";
+          document.querySelector(".vjs-big-play-button").style.display = "none";
         });
         //暂停
         this.on("pause", function(e) {
           console.log(e, "pause");
+          document.querySelector(".vjs-big-play-button").style.display =
+            "block";
           //  document.querySelector(".vjs-big-play-button").style.display = "block";
         });
         //正在去拿视频流的路上
@@ -230,5 +238,4 @@ export default {
 .vjs-tech {
   pointer-events: none;
 }
-
 </style>

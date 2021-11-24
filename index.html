@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0" /> -->
     <title>emotion</title>
     <script src="http://lib.baomitu.com/chimee-player/1.1.9/chimee-player.browser.js"></script>
     <script src="/static/js/jweixin-1.0.0.js"></script>
@@ -12,11 +12,28 @@
     />
     <!--如果需要在 Chrome 和 Firefox 等现代浏览器中通过 H5 播放 HLS 格式的视频，需要在 tcplayer.v4.2.min.js 之前引入 hls.min.0.13.2m.js。-->
     <script src="/static/js/hls.min.js"></script>
+    <!--  <script src="/static/js/rem.js"></script> -->
     <!--播放器脚本文件-->
     <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.1/tcplayer.v4.2.1.min.js"></script>
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+      var scaleStyle = document.createElement("style"); //增加style标签
+      var scaleTemp =
+        (((750 / window.innerWidth) * window.innerHeight) / 1334).toFixed(2) *
+        1; //iPhone6为例，求宽高比（toFiexd是方法可把 Number 四舍五入为指定小数位数的数字。这里是两位。最后*1是为了转为整数，当然 -0也可以）
+      scaleTemp = scaleTemp > 1 ? 1 : scaleTemp; //如果宽高比大于1，就让他等于1，否则就是它自己的比例（小于1）
+      scaleStyle.innerHTML =
+        "html{font-size:" +
+        (document.documentElement.clientWidth / 375) * 50 +
+        "px}.auto_scale{-webkit-transform: scale(" +
+        scaleTemp +
+        ");transform: scale(" +
+        scaleTemp +
+        ");}"; //在刚创建的style标签里设置根元素的样式（这里是iphone6 ,1rem=50px;）,将他进行自由缩放
+      document.documentElement.appendChild(scaleStyle); //增加给它的子元素
+    </script>
   </body>
 </html>
